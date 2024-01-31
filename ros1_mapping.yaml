@@ -1,0 +1,63 @@
+-
+  enable_foreign_mappings: true
+  ros1_package_name: 'moveit_msgs'
+  ros1_message_name: 'MotionPlanRequest'
+  ros2_package_name: 'moveit_msgs' 
+  ros2_message_name: 'MotionPlanRequest'
+  fields_1_to_2:
+    workspace_parameters: 'workspace_parameters'
+    start_state: 'start_state'
+    goal_constraints: 'goal_constraints'
+    path_constraints: 'path_constraints'
+    trajectory_constraints: 'trajectory_constraints'
+    reference_trajectories: 'reference_trajectories'
+    pipeline_id: 'pipeline_id'
+    planner_id: 'planner_id'
+    group_name: 'group_name'
+    num_planning_attempts: 'num_planning_attempts'
+    allowed_planning_time: 'allowed_planning_time'
+    max_velocity_scaling_factor: 'max_velocity_scaling_factor'
+    max_acceleration_scaling_factor: 'max_acceleration_scaling_factor'
+    cartesian_speed_limited_link: 'cartesian_speed_end_effector_link'
+    max_cartesian_speed: 'max_cartesian_speed'
+
+# FollowJointTrajectory in ros2 had multi dof stuff added to it.  Map the things that are similar.
+# Unmapped fields will be ignored
+-
+  enable_foreign_mappings: true
+  ros1_package_name: 'control_msgs'
+  ros1_action_name: 'FollowJointTrajectory'
+  ros2_package_name: 'control_msgs' 
+  ros2_action_name: 'FollowJointTrajectory'
+  goal_fields_1_to_2:
+    trajectory: 'trajectory'
+    path_tolerance: 'path_tolerance'
+    goal_tolerance: 'goal_tolerance'
+    goal_time_tolerance: 'goal_time_tolerance'
+  result_fields_1_to_2:
+    error_code: 'error_code'
+    error_string: 'error_string'
+  feedback_fields_1_to_2:
+    header: 'header'
+    joint_names: 'joint_names'
+    desired: 'desired'
+    actual: 'actual'
+    error: 'error'
+
+
+# Note: This won't work since the defines for the different levels changed.
+# -
+#   enable_foreign_mappings: true
+#   ros1_package_name: 'rosgraph_msgs'
+#   ros1_message_name: 'Log'
+#   ros2_package_name: 'rcl_interfaces'
+#   ros2_message_name: 'Log'
+#   fields_1_to_2:
+#     header.stamp: 'stamp'
+#     level: 'level'
+#     name: 'name'
+#     msg: 'msg'
+#     file: 'file'
+#     function: 'function'
+#     line: 'line'
+#     topics: null
